@@ -25,7 +25,7 @@ int main(){
 		cout<<"ingrese el DNI de la persona nro: "<<i+1<<endl; cin>>p[i].DNI;
 		cout<<"ingrese el dia de nacimiento de la persona nro: "<<i+1<<endl; cin>>f[i].dia;
 		cout<<"ingrese el mes de nacimiento de la persona nro: "<<i+1<<endl; cin>>f[i].mes;
-		cout<<"ingrese el año de nacimiento de la persona nro: "<<i+1<<endl; cin>>f[i].year;
+		cout<<"ingrese el aÃ±o de nacimiento de la persona nro: "<<i+1<<endl; cin>>f[i].year;
 		cout<<endl;
 	}
 	ordenp(n, f, p);
