@@ -11,16 +11,16 @@ void ordenapol(monomio t[], int n);
 
 int main(){
 	int n;
-	monomio t[100];
+	monomio ter[100];
 	cout<<"ingrese la cantidad de terminos del polinomio: "; cin>>n;
 	for(int i=0; i<n; i++){
-		cout<<"ingrese el coeficiente del termino "<<i+1<<": "; cin>>t[i].coef;
-		cout<<"ingrese el exponente del termino "<<i+1<<": "; cin>>t[i].exp;
+		cout<<"ingrese el coeficiente del termino "<<i+1<<": "; cin>>ter[i].coef;
+		cout<<"ingrese el exponente del termino "<<i+1<<": "; cin>>ter[i].exp;
 	}
-	ordenapol(t, n);
+	ordenapol(ter, n);
 	cout<<"el polinomio ordenado es: ";
 	for(int i=0; i<n; i++){
-		cout<<" + "<<t[i].coef<<"x^"<<t[i].exp;
+		cout<<" + "<<ter[i].coef<<"x^"<<ter[i].exp;
 	}
 }
 

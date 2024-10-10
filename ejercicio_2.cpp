@@ -6,18 +6,18 @@ struct personas{
 	int DNI;
 	string nombres;
 };
-struct fecha{
+struct fechas{
 	int dia;
 	int mes;
 	int year;
 };
 
-void ordenp(int n, fecha f[], personas p[]);
-bool compararf(fecha f1, fecha f2);
-int binaria(fecha a[], int n, fecha dato);
+void ordenp(int n, fechas f[], personas p[]);
+bool compararf(fechas f1, fechas f2);
+int binaria(fechas f[], int n, fechas dato);
 
 int main(){
-	fecha f[100], dato;
+	fechas f[100], dato;
 	personas p[100];
 	int n;
 	cout<<"ingrese la cantidad de personas: "; cin>>n;
@@ -27,14 +27,7 @@ int main(){
 		cout<<"ingrese el dia de nacimiento de la persona nro: "<<i+1<<endl; cin>>f[i].dia;
 		cout<<"ingrese el mes de nacimiento de la persona nro: "<<i+1<<endl; cin>>f[i].mes;
 		cout<<"ingrese el año de nacimiento de la persona nro: "<<i+1<<endl; cin>>f[i].year;
-		cout<<endl;
-	}
-	ordenp(n, f, p);
-	cout<<"las personas ordenadas por fecha de nacimiento: "<<endl;
-	for(int i=0; i<n; i++){
-		cout<<"nombre "<<i+1<<" es: "<<p[i].nombres<<endl;
-		cout<<"DNI "<<i+1<<" es: "<<p[i].DNI<<endl;
-		cout<<"fecha de nacimiento "<<i+1<<" es: "<<f[i].dia<<"/"<<f[i].mes<<"/"<<f[i].year<<endl;
+		ordenp(n, f, p);
 		cout<<endl;
 	}
 	cout<<"ingrese la año que quiere buscar: "; cin>>dato.year;
@@ -48,43 +41,43 @@ int main(){
 	}
 }
 
-void ordenp(int n, fecha f[], personas p[]){
-	fecha aux_fech;
-	personas aux_per;
+void ordenp(int n, fechas f[], personas p[]){
+	fechas auxf;
+	personas auxp;
 	int k;
 	for(int i=1; i<n; i++){
-		aux_fech=f[i];
-		aux_per=p[i];
+		auxf=f[i];
+		auxp=p[i];
 		k=i-1;
-		while(k>=0 and compararf(aux_fech, f[k])){
+		while(k>=0 and compararf(auxf, f[k])){
 			f[k+1]=f[k];
 			p[k+1]=p[k];
 			k=k-1;
 		}
-		f[k+1]=aux_fech;
-		p[k+1]=aux_per;  
+		f[k+1]=auxf;
+		p[k+1]=auxp;  
 	}
 }
 
-bool compararf(fecha f1, fecha f2){
+bool compararf(fechas f1, fechas f2){
 	if(f1.year!=f2.year){
 		return f1.year<f2.year;
 	}
 	if(f1.mes<f2.mes){
-		return f1.mes<f1.mes;
+		return f1.mes<f2.mes;
 	}
 	return f1.dia<f2.dia;
 }
 
-int binaria(fecha a[], int n, fecha dato){
+int binaria(fechas f[], int n, fechas dato){
 	int izq=0, der=n-1, cen=0, m, pos;
 	while(izq<=der and cen==0){
 		m=(izq+der)/2;
-		if(a[m].year==dato.year and a[m].mes==dato.mes and a[m].dia==dato.dia){
+		if(f[m].year==dato.year and f[m].mes==dato.mes and f[m].dia==dato.dia){
 			cen=1;
 		}
 		else{
-			if(compararf(a[m], dato)){
+			if(compararf(f[m], dato)){
 				izq=m+1;
 			}
 			else{
@@ -96,7 +89,7 @@ int binaria(fecha a[], int n, fecha dato){
 		pos=m+1;
 	}
 	else{
-		pos=-izq-1;
+		pos=-izq;
 	}
 	return pos;
 }
