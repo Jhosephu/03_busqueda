@@ -17,10 +17,10 @@ int main(){
 	int n;
 	cout<<"ingrese la cantidad de articulos: "; cin>>n;
 	for(int i=0; i<n; i++){
-		cout<<"ingrese el codigo del articulo nro: "<<i+1<<endl; cin>>art[i].cod;
-		cout<<"ingrese la descripcion del articulo nro: "<<i+1<<endl; cin>>art[i].desc;
-		cout<<"ingrese el precio del articulo nro: "<<i+1<<endl; cin>>art[i].prec;
-		cout<<"ingrese la cantidad del articulo nro: "<<i+1<<endl; cin>>art[i].cant;
+		cout<<"ingrese el codigo del articulo nro "<<i+1<<": "; cin>>art[i].cod;
+		cout<<"ingrese la descripcion del articulo nro "<<i+1<<": "; cin>>art[i].desc;
+		cout<<"ingrese el precio del articulo nro "<<i+1<<": "; cin>>art[i].prec;
+		cout<<"ingrese la cantidad del articulo nro "<<i+1<<": "; cin>>art[i].cant;
 		art[i].mont=art[i].cant*art[i].prec;
 		cout<<endl;
 	}

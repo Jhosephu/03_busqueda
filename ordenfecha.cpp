@@ -21,11 +21,11 @@ int main(){
 	int n;
 	cout<<"ingrese la cantidad de personas: "; cin>>n;
 	for(int i=0; i<n; i++){
-		cout<<"ingrese el nombre de la persona nro: "<<i+1<<endl; cin>>pers[i].nombre;
-		cout<<"ingrese el DNI de la persona nro: "<<i+1<<endl; cin>>pers[i].DNI;
-		cout<<"ingrese el dia de nacimiento de la persona nro: "<<i+1<<endl; cin>>fech[i].dia;
-		cout<<"ingrese el mes de nacimiento de la persona nro: "<<i+1<<endl; cin>>fech[i].mes;
-		cout<<"ingrese el año de nacimiento de la persona nro: "<<i+1<<endl; cin>>fech[i].year;
+		cout<<"ingrese el nombre de la persona nro "<<i+1<<": "; cin>>pers[i].nombre;
+		cout<<"ingrese el DNI de la persona nro "<<i+1<<": "; cin>>pers[i].DNI;
+		cout<<"ingrese el dia de nacimiento de la persona nro "<<i+1<<": "; cin>>fech[i].dia;
+		cout<<"ingrese el mes de nacimiento de la persona nro "<<i+1<<": "; cin>>fech[i].mes;
+		cout<<"ingrese el año de nacimiento de la persona nro "<<i+1<<": "; cin>>fech[i].year;
 		cout<<endl;
 	}
 	ordenp(n, fech, pers);
@@ -45,9 +45,9 @@ void ordenp(int n, fec f[], per p[]){
 	for(int i=0; i<n-1; i++){
 		menorf=f[i];
 		menorp=p[i];
-		k=i-1;
+		k=i;
 		for(int j=i+1; j<n; j++){
-			if(compararf(menorf, f[j])){
+			if(compararf(f[j], menorf)){
 				menorf=f[j];
 				menorp=p[j];
 				k=j;
@@ -63,7 +63,7 @@ bool compararf(fec f1, fec f2){
 	if(f1.year!=f2.year){
 		return f1.year<f2.year;
 	}
-	if(f1.mes<f2.mes){
+	if(f1.mes!=f2.mes){
 		return f1.mes<f2.mes;
 	}
 	return f1.dia<f2.dia;
